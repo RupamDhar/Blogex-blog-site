@@ -1,0 +1,39 @@
+.blog-content-page {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.blog-content-wrapper {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-start;
+    padding: 30px;
+    width: 90%;
+    height: 180px;
+    font-size: 50px;
+    color: white;
+    background-color: teal;
+}
+
+.blog-timestamp {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.blog-content {
+    margin: 60px 0 200px 0;
+    width: 82%;
+    font-size: 22px;
+    font-weight: 500;
+    color: #3e3e3e;
+}
