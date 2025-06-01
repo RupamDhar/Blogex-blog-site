@@ -15,8 +15,10 @@ function App() {
 
   async function fetchAllBlogs() {
     try {
-      const result = await fetch('http://localhost:9000/api/get-all-blogs');
+      const result = await fetch('http://localhost:9000/api/blogs/get-all-blogs');
       const data = await result.json();
+      console.log(data);
+      
       setBlogs(data);
     }
     catch (error) {
@@ -46,7 +48,7 @@ function App() {
         </div>
 
         <div className="blog-cards-wrapper">
-          {blogs.map((blog, index) => (
+          {blogs && blogs.map((blog, index) => (
             //conditionally rendering blog cards according to tags
             blog.tags.includes(selectedTag)
             &&

@@ -1,26 +1,23 @@
 const express = require('express');
-const database = require('./database.js');
 const cors = require('cors');
 require('dotenv').config();
+const databaseOld = require('./databaseOld.js');
+const database = require('./database.js');
+const BlogRoutes = require('./routes/BlogRoutes.js');
 
 const app = express();
 app.use(cors());
 
+database.connectDB();
+
+//server health check
 app.get('/', (req, res) => {
     res.send('Server is running...');
 });
 
-//fetching all blogs
-app.get('/api/get-all-blogs', async (req, res) => {
-    const blogs = await database.getAllBlogs();
-    res.send(blogs);
-});
+//routing /api/blogs to Router
+app.use('/api/blogs', BlogRoutes);
 
-//fetching blog with the blog slug 
-app.get('/api/view/blog/:slug', async (req, res) => {
-    const { slug } = req.params;
-    res.send(await database.getBlog(slug));
-});
 
 
 

@@ -13,18 +13,25 @@ const ViewBlogPage = () => {
     }, []);
 
     async function fetchBlog(blogSlug) {
-        const result = await fetch(`http://localhost:9000/api/view/blog/${blogSlug}`);
+        console.log(`http://localhost:9000/api/blogs/view/${blogSlug}`);
+        const result = await fetch(`http://localhost:9000/api/blogs/view/${blogSlug}`);
         const data = await result.json();
-        console.log(data[0]);
-        setBlog(data[0]);
+        console.log(data);
+        setBlog(data);
     }
 
     return (
         <div className='blog-content-page'>
             <div className="blog-content-wrapper">
-                <div className="blog-title">
-                    {blog.title}
-                    <div className="blog-timestamp">{blog.timestamp}</div>
+                <div className="blog-header">
+                    {blog && blog.title}
+                    <div className="blog-timestamp">{blog && blog.timestamp}</div>
+                    <div className="blog-tags">
+                        {/* blog.tags is mapped when it exists (after fetching) */}
+                        {blog.tags && blog.tags.map((tag, index) => (
+                            <div className="blog-tag" index={index}>{tag}</div>
+                        ))}
+                    </div>
                 </div>
 
                 <div className="blog-content">
