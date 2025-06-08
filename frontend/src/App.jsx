@@ -5,7 +5,7 @@ import BlogPreviewCard from '../components/BlogPreviewCard'
 
 
 function App() {
-  const tags = ['All', 'Sad', 'Comedy', 'Horror', 'Auto', 'Health', 'Travel'];
+  const tags = ['All', 'Sad', 'Comedy', 'Horror', 'Auto', 'Health', 'Travel', 'Life', 'Thoughts'];
   const [selectedTag, setSelectedTag] = useState('All');
   const [blogs, setBlogs] = useState([]);
 
@@ -63,7 +63,6 @@ function App() {
           ))}
         </div>
       </div>
-
     </>
   )
 }

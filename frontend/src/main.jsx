@@ -10,7 +10,7 @@ import ViewBlogPage from './ViewBlogPage.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <h1>Landing Page</h1>
+    element: <h1><a href="/home">blog</a></h1>
   },
   {
     path: '/home',

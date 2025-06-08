@@ -18,7 +18,15 @@ const BlogPreviewCard = ({ title, slug, author, tags, clippedContent }) => {
         <NavLink to={`/view/blog/${slug}`} className='blog-preview-card' target='_blank'>
             <div className="blog-card-info-wrapper">
                 <div id="blog-card-title">{title}</div>
-                <a href='https://anandi.vercel.app' target='_blank' id="blog-card-author">by {author}</a>
+                <span
+                    id="blog-card-author"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        window.open('https://anandi.vercel.app', '_blank');
+                    }}
+                >
+                    by {author}
+                </span>
             </div>
             <div className="blog-card-tags">
                 {tags.map((tag, index) => (

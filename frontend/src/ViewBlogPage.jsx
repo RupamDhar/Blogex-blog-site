@@ -8,7 +8,7 @@ const ViewBlogPage = () => {
     const { slug } = useParams();
     const [blog, setBlog] = useState({});
 
-    useEffect(()=> {
+    useEffect(() => {
         fetchBlog(slug);
     }, []);
 
@@ -20,12 +20,25 @@ const ViewBlogPage = () => {
         setBlog(data);
     }
 
+    function formatDate(isoDate) {
+        const date = new Date(isoDate);
+
+        const formattedDate = date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        console.log(formattedDate); // "June 7, 2025"
+        return formattedDate;
+    }
+
     return (
         <div className='blog-content-page'>
             <div className="blog-content-wrapper">
                 <div className="blog-header">
                     {blog && blog.title}
-                    <div className="blog-timestamp">{blog && blog.timestamp}</div>
+                    <div className="blog-timestamp">{blog && formatDate(blog.createdAt)}</div>
                     <div className="blog-tags">
                         {/* blog.tags is mapped when it exists (after fetching) */}
                         {blog.tags && blog.tags.map((tag, index) => (
@@ -33,7 +46,7 @@ const ViewBlogPage = () => {
                         ))}
                     </div>
                 </div>
-
+                
                 <div className="blog-content">
                     <ReactMarkdown>{blog.content}</ReactMarkdown>
                 </div>
