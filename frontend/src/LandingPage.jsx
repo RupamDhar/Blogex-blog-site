@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Analytics } from "@vercel/analytics/next"
 import './LandingPage.css'
 import BlogPreviewCard from '../components/BlogPreviewCard';
 import Footer from '../components/Footer';
@@ -25,7 +24,6 @@ const LandingPage = () => {
 
     return (
         <div className='landing-page'>
-            <Analytics />
             <div className="hero-section">
                 <div className="hero-section-title">Blogex.</div>
                 <a href='/home' className="view-all-btn">VIEW ALL</a>
