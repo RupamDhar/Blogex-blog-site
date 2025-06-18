@@ -9,12 +9,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-database.connectDB();
-
 //server health check
 app.get('/', (req, res) => {
     res.send('Server is running...');
 });
+
+
+database.connectDB();
 
 //routing /api/blogs to Router
 app.use('/api/blogs', BlogRoutes);
