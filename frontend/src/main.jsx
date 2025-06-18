@@ -5,12 +5,14 @@ import './index.css'
 import App from './App.jsx'
 import CreateBlog from './CreateBlog.jsx'
 import ViewBlogPage from './ViewBlogPage.jsx';
+import LandingPage from './LandingPage.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <h1><a href="/home">blog</a></h1>
+    // element: <h1><a href="/home">blog</a></h1>
+    element: <LandingPage />
   },
   {
     path: '/home',

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SimpleMDE from 'react-simplemde-editor';
 import Navbar from '../components/Navbar';
 import 'easymde/dist/easymde.min.css';
@@ -12,6 +12,10 @@ const CreateBlog = () => {
     const [tags, setTags] = useState('');
     const [blog, setBlog] = useState('');
     const [published, setPublished] = useState(false);
+
+    useEffect(() => {
+        document.title = `Create Blog - ${title}`;
+    }, [title]);
 
     function resetForm() {
         setTitle('');
@@ -33,7 +37,7 @@ const CreateBlog = () => {
         console.log(postBlog.slug);
 
         //POSTing the Blog
-        const result = await fetch('http://localhost:9000/api/blogs/create-blog', {
+        const result = await fetch(`http://192.168.1.18:9000/api/blogs/create-blog`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -41,10 +45,11 @@ const CreateBlog = () => {
             body: JSON.stringify(postBlog)
         });
 
+        //showing the success card
         if (result.ok) {
             setPublished(true);
-            resetForm();
             setTimeout(() => setPublished(false), 4000);
+            resetForm();
         }
     }
 
@@ -64,7 +69,7 @@ const CreateBlog = () => {
                 <input type="text" value={author} id='author-input' className="input" placeholder='Enter author' onChange={(e) => setAuthor(e.target.value)} /> <br />
 
                 <span htmlFor="tags-input" id="tags-label" className="label">Tags</span>
-                <input type="text" value={tags} id='tags-input' className="input" placeholder='Enter tags seperated by commas(include All as a tag)' onChange={(e) => setTags(e.target.value)} /> <br />
+                <input type="text" value={tags} id='tags-input' className="input" placeholder='Enter tags seperated by commas' onChange={(e) => setTags(e.target.value)} /> <br />
 
                 <SimpleMDE id="blog-input-area" value={blog} rows={40} placeholder="Your blog goes here..." onChange={(value) => setBlog(value)}></SimpleMDE>
             </div>

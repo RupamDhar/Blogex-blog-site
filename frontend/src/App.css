@@ -24,12 +24,12 @@ hr {
   background-color: white;
   border-right: 2px solid #3e3e3e;
 }
-.tag-filter-title{
+.tag-filter-title, .author-filter-title{
   font-size: 28px;
   font-weight: 600;
   color: #3e3e3e;
 }
-.tag-filters {
+.tag-filters, .author-filters {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -47,7 +47,7 @@ hr {
   cursor: pointer;
   transition: all 0.05s ease-in-out;
 }
-.tag-filter-selected {
+.tag-filter-selected, .author-filter-selected {
   z-index: 1;
   border-right: 4px solid #3e3e3e;
   color: #3e3e3e;
@@ -56,6 +56,8 @@ hr {
 }
 
 .blog-cards-wrapper {
+  /* overflow: scroll; */
+  /* height: 100vh; */
   display: flex;
   flex: 1;
   flex-wrap: wrap;
@@ -63,3 +65,4 @@ hr {
   align-items: start;
   margin: 28px 0;
 }
+

@@ -11,10 +11,13 @@ const ViewBlogPage = () => {
     useEffect(() => {
         fetchBlog(slug);
     }, []);
+    useEffect(() => {
+        document.title = `${blog.title}`;
+    }, [blog]);
 
     async function fetchBlog(blogSlug) {
-        console.log(`http://localhost:9000/api/blogs/view/${blogSlug}`);
-        const result = await fetch(`http://localhost:9000/api/blogs/view/${blogSlug}`);
+        console.log(`http://192.168.1.18:9000/api/blogs/view/${blogSlug}`);
+        const result = await fetch(`http://192.168.1.18:9000/api/blogs/view/${blogSlug}`);
         const data = await result.json();
         console.log(data);
         setBlog(data);
@@ -46,7 +49,7 @@ const ViewBlogPage = () => {
                         ))}
                     </div>
                 </div>
-                
+
                 <div className="blog-content">
                     <ReactMarkdown>{blog.content}</ReactMarkdown>
                 </div>

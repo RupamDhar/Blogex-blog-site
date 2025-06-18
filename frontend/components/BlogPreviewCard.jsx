@@ -20,10 +20,10 @@ const BlogPreviewCard = ({ title, slug, author, tags, clippedContent }) => {
                 <div id="blog-card-title">{title}</div>
                 <span
                     id="blog-card-author"
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        window.open('https://anandi.vercel.app', '_blank');
-                    }}
+                    // onClick={(e) => {
+                    //     e.stopPropagation();
+                    //     window.open('https://anandi.vercel.app', '_blank');
+                    // }}
                 >
                     by {author}
                 </span>

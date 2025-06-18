@@ -1,0 +1,45 @@
+.hero-section {
+    padding-bottom: 100px;
+    box-sizing: border-box;
+    height: 65vh;
+    /* background: url('20248728_6215253.jpg'); */
+    background: linear-gradient(black, lightgray);
+    background-size: cover;
+    background-position: top;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-section-title {
+    color: white;
+    font-size: 120px;
+    font-weight: 600;
+}
+
+.view-all-btn {
+    text-decoration: none;
+    margin-top: 25px;
+    padding: 12px 60px;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    color: white;
+    background-color: black;
+    outline: 2px solid white;
+    outline-offset: 5px;
+    transition: all 0.2s ease-in-out;
+}
+.view-all-btn:hover {
+    /* outline-color: black; */
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+.featured-blogs {
+    margin-top: -140px;
+    display: flex;
+    justify-content: center;
+}

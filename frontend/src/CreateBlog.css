@@ -5,7 +5,7 @@
 
 .floating-message-success {
     opacity: 0;
-    transform: translateX(10px);
+    transform: translateX(300px);
     position: absolute;
     right: 30px;
     top: 30px;
