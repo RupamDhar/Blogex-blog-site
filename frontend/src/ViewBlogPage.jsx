@@ -16,8 +16,7 @@ const ViewBlogPage = () => {
     }, [blog]);
 
     async function fetchBlog(blogSlug) {
-        console.log(`http://192.168.1.18:9000/api/blogs/view/${blogSlug}`);
-        const result = await fetch(`http://192.168.1.18:9000/api/blogs/view/${blogSlug}`);
+        const result = await fetch(`https://blogex-backend.vercel.app/api/blogs/view/${blogSlug}`);
         const data = await result.json();
         console.log(data);
         setBlog(data);

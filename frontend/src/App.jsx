@@ -30,7 +30,7 @@ function App() {
 
   async function fetchAllBlogs() {
     try {
-      const result = await fetch(`http://192.168.1.18:9000/api/blogs/get-all-blogs`);
+      const result = await fetch(`https://blogex-backend.vercel.app//api/blogs/get-all-blogs`);
       const data = await result.json();
       console.log(data);
       setBlogs(data);

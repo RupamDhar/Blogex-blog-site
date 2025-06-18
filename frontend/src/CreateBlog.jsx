@@ -37,7 +37,7 @@ const CreateBlog = () => {
         console.log(postBlog.slug);
 
         //POSTing the Blog
-        const result = await fetch(`http://192.168.1.18:9000/api/blogs/create-blog`, {
+        const result = await fetch(`https://blogex-backend.vercel.app/api/blogs/create-blog`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

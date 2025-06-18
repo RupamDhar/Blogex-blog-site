@@ -13,7 +13,7 @@ const LandingPage = () => {
 
     async function fetchFeaturedBlogs() {
         try {
-            const result = await fetch(`http://192.168.1.18:9000/api/blogs/get-featured-blogs?count=${featuredBlogCount}`);
+            const result = await fetch(`https://blogex-backend.vercel.app/api/blogs/get-featured-blogs?count=${featuredBlogCount}`);
             const blogs = await result.json();
             setFeaturedBlogs(blogs);
         }
