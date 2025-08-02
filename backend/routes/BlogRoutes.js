@@ -6,5 +6,7 @@ router.get('/get-featured-blogs', BlogController.getFeaturedBlogs);
 router.get('/get-all-blogs', BlogController.getAllBlogs);
 router.get('/view/:slug', BlogController.getBlogBySlug);
 router.post('/create-blog', BlogController.createBlog);
+router.delete('/delete-blog', BlogController.deleteBlog);
+router.patch('/update-blog/:slug', BlogController.updateBlog);
 
 module.exports = router;

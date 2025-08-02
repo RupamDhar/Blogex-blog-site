@@ -1,4 +1,5 @@
 .blog-preview-card {
+    position: relative;
     text-decoration: none;
     display: flex;
     flex-direction: column;
@@ -15,23 +16,48 @@
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
+
 .blog-preview-card:hover {
     transform: translateY(-5px);
 }
+
 .blog-card-tags {
     margin: 10px 0;
 }
-.tag{
+
+.blog-card-date {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: gray;
+    font-size: 14px;
+}
+
+.blog-card-actionables {
+    display: flex;
+    gap: 10px;
+}
+
+.tag {
     padding: 3px 10px;
     margin-right: 5px;
     font-size: 14px;
     color: white;
-    background-color: brown;
+    background-color: rgb(9, 134, 118);
     border-radius: 100px;
 }
+
 .blog-card-info-wrapper {
     display: flex;
     flex-direction: column;
+}
+
+.fa-solid {
+    transition: all 0.08s ease-in-out;
+}
+
+.fa-solid:hover {
+    scale: 1.1;
 }
 
 #blog-card-title {
@@ -43,9 +69,11 @@
 
 #blog-card-author {
     margin-top: 4px;
+    font-style: italic;
     font-size: 12px;
     color: gray;
 }
+
 #blog-card-author:hover {
     text-decoration: underline;
 }
@@ -58,4 +86,57 @@
     -webkit-box-orient: vertical;
     font-size: 14px;
     color: #333333;
+}
+
+.delete-confirm-dialog-wrapper {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-dialog {
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: fit-content;
+    background-color: white;
+}
+
+.delete-dialog-header {
+    width: 100%;
+    margin-bottom: 18px;
+    color: #333333;
+}
+
+.dialog-btn-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.delete-btn {
+    padding: 6px 14px;
+    width: 40%;
+    border: none;
+    color: white;
+    background-color: #333333;
+    cursor: pointer;
+}
+
+.fa-xmark {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.hide-dialog {
+    display: none;
 }

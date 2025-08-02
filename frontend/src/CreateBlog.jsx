@@ -3,6 +3,7 @@ import SimpleMDE from 'react-simplemde-editor';
 import Navbar from '../components/Navbar';
 import 'easymde/dist/easymde.min.css';
 import './CreateBlog.css'
+const BASE_API_URL = import.meta.env.VITE_BASE_URL;
 
 
 const CreateBlog = () => {
@@ -37,7 +38,7 @@ const CreateBlog = () => {
         console.log(postBlog.slug);
 
         //POSTing the Blog
-        const result = await fetch(`https://blogex-backend.vercel.app/api/blogs/create-blog`, {
+        const result = await fetch(`${BASE_API_URL}/api/blogs/create-blog`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

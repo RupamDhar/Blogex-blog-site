@@ -9,3 +9,4 @@ GET /api/blogs/view/:slug
 POST /api/blogs/create-blog
 PUT /api/blogs/update-blog
 DELETE /api/blogs/delete-blog
+UPDATE /api/blogs/update-blog/:slug

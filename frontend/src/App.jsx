@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from '../components/Navbar'
 import BlogPreviewCard from '../components/BlogPreviewCard'
 import Footer from '../components/Footer'
+const BASE_API_URL = import.meta.env.VITE_BASE_URL;
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
 
   async function fetchAllBlogs() {
     try {
-      const result = await fetch(`https://blogex-backend.vercel.app/api/blogs/get-all-blogs`);
+      const result = await fetch(`${BASE_API_URL}/api/blogs/get-all-blogs`);
       const data = await result.json();
       console.log(data);
       setBlogs(data);
@@ -92,6 +93,7 @@ function App() {
                 author={blog.author}
                 tags={blog.tags}
                 clippedContent={blog.clippedContent}
+                timestamp={blog.timestamp}
               />
             ))):(<h1>No blogs found</h1>)
           }

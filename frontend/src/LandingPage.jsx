@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './LandingPage.css'
 import BlogPreviewCard from '../components/BlogPreviewCard';
 import Footer from '../components/Footer';
+const BASE_API_URL = import.meta.env.VITE_BASE_URL;
 
 const LandingPage = () => {
     const featuredBlogCount = 3;
@@ -13,7 +14,7 @@ const LandingPage = () => {
 
     async function fetchFeaturedBlogs() {
         try {
-            const result = await fetch(`https://blogex-backend.vercel.app/api/blogs/get-featured-blogs?count=${featuredBlogCount}`);
+            const result = await fetch(`${BASE_API_URL}/api/blogs/get-featured-blogs?count=${featuredBlogCount}`);
             const blogs = await result.json();
             setFeaturedBlogs(blogs);
         }

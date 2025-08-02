@@ -19,11 +19,19 @@
     align-items: flex-start;
     padding: 45px;
     width: 85%;
-    height: 180px;
+    height: fit-content;
     font-size: 50px;
     border-radius: 0 0 25px 25px ;
     color: white;
     background-color: #303030;
+}
+
+.written-by {
+    margin-left: 5px;
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 20px;
+    font-size: 16px;
 }
 
 .blog-timestamp {

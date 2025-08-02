@@ -6,12 +6,12 @@ import App from './App.jsx'
 import CreateBlog from './CreateBlog.jsx'
 import ViewBlogPage from './ViewBlogPage.jsx';
 import LandingPage from './LandingPage.jsx';
+import UpdateBlog from './UpdateBlog.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: '/',
-    // element: <h1><a href="/home">blog</a></h1>
     element: <LandingPage />
   },
   {
@@ -25,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: '/view/blog/:slug',
     element: <ViewBlogPage />
+  },
+  {
+    path: '/update-blog/:slug',
+    element: <UpdateBlog />
   }
 ])
 

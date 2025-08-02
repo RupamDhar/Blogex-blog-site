@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import './ViewBlogPage.css'
+const BASE_API_URL = import.meta.env.VITE_BASE_URL;
 
 const ViewBlogPage = () => {
 
@@ -16,7 +17,7 @@ const ViewBlogPage = () => {
     }, [blog]);
 
     async function fetchBlog(blogSlug) {
-        const result = await fetch(`https://blogex-backend.vercel.app/api/blogs/view/${blogSlug}`);
+        const result = await fetch(`${BASE_API_URL}/api/blogs/view/${blogSlug}`);
         const data = await result.json();
         console.log(data);
         setBlog(data);
@@ -39,7 +40,8 @@ const ViewBlogPage = () => {
         <div className='blog-content-page'>
             <div className="blog-content-wrapper">
                 <div className="blog-header">
-                    {blog && blog.title}
+                    {blog && blog.title}   <br />
+                    <div className="written-by">by {blog && blog.author}</div>
                     <div className="blog-timestamp">{blog && formatDate(blog.createdAt)}</div>
                     <div className="blog-tags">
                         {/* blog.tags is mapped when it exists (after fetching) */}
