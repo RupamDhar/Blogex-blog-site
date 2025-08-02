@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react'
 import './LandingPage.css'
 import BlogPreviewCard from '../components/BlogPreviewCard';
 import Footer from '../components/Footer';
+import Loader from '../components/Loader';
 const BASE_API_URL = import.meta.env.VITE_BASE_URL;
 
 const LandingPage = () => {
     const featuredBlogCount = 3;
     const [featuredBlogs, setFeaturedBlogs] = useState([]);
+    const [blogsFetched, setBlogFetched] = useState(false);
 
     useEffect(() => {
         fetchFeaturedBlogs();
@@ -17,6 +19,7 @@ const LandingPage = () => {
             const result = await fetch(`${BASE_API_URL}/api/blogs/get-featured-blogs?count=${featuredBlogCount}`);
             const blogs = await result.json();
             setFeaturedBlogs(blogs);
+            setBlogFetched(true);
         }
         catch (error) {
             console.error(error);
@@ -31,6 +34,7 @@ const LandingPage = () => {
             </div>
 
             <div className="featured-blogs">
+                {!blogsFetched && <Loader />}
                 {featuredBlogs &&
                     featuredBlogs.map((blog, index) => (
                         <BlogPreviewCard 

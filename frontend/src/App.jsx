@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from '../components/Navbar'
 import BlogPreviewCard from '../components/BlogPreviewCard'
 import Footer from '../components/Footer'
+import Loader from '../components/Loader'
 const BASE_API_URL = import.meta.env.VITE_BASE_URL;
 
 
@@ -23,6 +24,7 @@ function App() {
   const [selectedTag, setSelectedTag] = useState('All');
   const [selectedAuthor, setSelectedAuthor] = useState('All');
   const [blogs, setBlogs] = useState([]);
+  const [blogsFetched, setBlogFetched] = useState(false);
 
   useEffect(() => {
     document.title = 'Blogex. - Home';
@@ -34,6 +36,7 @@ function App() {
       const result = await fetch(`${BASE_API_URL}/api/blogs/get-all-blogs`);
       const data = await result.json();
       console.log(data);
+      setBlogFetched(true);
       setBlogs(data);
     }
     catch (error) {
@@ -78,24 +81,26 @@ function App() {
         </div>
 
         <div className="blog-cards-wrapper">
-          {blogs ? (blogs
-            .filter((blog) =>
-              //pass this blog if selectedTag is All OR is included in blog tags
-              (selectedTag === 'All' || blog.tags.includes(selectedTag))
-              //AND pass this blog if selectedAuthor is All OR is equal to blog author
-              && (selectedAuthor === 'All' || blog.author === selectedAuthor)
-            )
-            .map((blog, index) => (
-              <BlogPreviewCard
-                key={index}
-                title={blog.title}
-                slug={blog.slug}
-                author={blog.author}
-                tags={blog.tags}
-                clippedContent={blog.clippedContent}
-                timestamp={blog.timestamp}
-              />
-            ))):(<h1>No blogs found</h1>)
+          {!blogsFetched && <Loader/>}
+          {
+            blogs && (blogs
+              .filter((blog) =>
+                //pass this blog if selectedTag is All OR is included in blog tags
+                (selectedTag === 'All' || blog.tags.includes(selectedTag))
+                //AND pass this blog if selectedAuthor is All OR is equal to blog author
+                && (selectedAuthor === 'All' || blog.author === selectedAuthor)
+              )
+              .map((blog, index) => (
+                <BlogPreviewCard
+                  key={index}
+                  title={blog.title}
+                  slug={blog.slug}
+                  author={blog.author}
+                  tags={blog.tags}
+                  clippedContent={blog.clippedContent}
+                  timestamp={blog.timestamp}
+                />
+              )))
           }
         </div>
       </main>
