@@ -1,12 +1,37 @@
-PROJECT START DATE : 17-May-2025
+# Blogex
+
+**Blogex** is a full-featured MERN-stack blog web application that allows users to read, explore, and publish blogs in a clean interface. Whether you're an avid reader or an aspiring writer, Blogex makes it simple to browse insightful content or share your own ideas with the world.
 
 
-**Routes:**
-For Blogs:
-GET / - home: 5 blogposts
-GET /api/blogs/get-all-blogs
-GET /api/blogs/view/:slug
-POST /api/blogs/create-blog
-PUT /api/blogs/update-blog
-DELETE /api/blogs/delete-blog
-UPDATE /api/blogs/update-blog/:slug
+## Features
+
+- **Blog Creation and Editing:** Users can view, create, update, and delete their blog posts with ease.
+- **Rich Text Editor:** Markdown-supported editor for writing expressive and well-formatted blogs.
+- **Content Previews:** Blog listings show a short preview (`clippedContent`) of each post.
+- **Blog Filters:** Readers can filter blogs by authors and blog tags.
+- **Developer-Friendly Structure:** Clean separation of frontend and backend logic for easier development and maintenance.
+
+## Tech Stack
+
+- **Frontend:** React, CSS
+- **Backend:** NodeJS, ExpressJS
+- **Database:** MongoDB
+- **Libraries/Frameworks:** Mongoose, ReactJS
+- **Deployment:** Vercel (Frontend & Backend)
+
+## Routes
+
+### For Blogs:
+- `GET /` — Home page with n latest blog posts
+- `GET /api/blogs/get-all-blogs` — Retrieve all blog entries
+- `GET /api/blogs/view/:slug` — View a single blog post by slug
+- `PATCH /api/blogs/update-blog/:slug` — Update an existing blog post
+- `POST /api/blogs/create-blog` — Create a new blog post
+- `DELETE /api/blogs/delete-blog` — Delete a blog post
+
+---
+
+
+**Author:** [Rupam Dhar](https://github.com/RupamDhar)
+
+**Website:** [Blogex](https://blogexblog.vercel.app)
