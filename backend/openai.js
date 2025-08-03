@@ -12,7 +12,7 @@ exports.GenerateAISummary = async (blogContent) => {
             { role: "system", content: "You are a professional blog summarizer that responds briefly and clearly in 2-3 lines." },
             { role: "user", content: blogContent }
         ],
-        model: "openai/gpt-4o",
+        model: "openai/gpt-4o-mini",
         temperature: 1,
         max_tokens: 4096,
         top_p: 1
@@ -20,5 +20,4 @@ exports.GenerateAISummary = async (blogContent) => {
     const result = response.choices[0].message.content;
     console.log(result);
     return result;
-
 }
