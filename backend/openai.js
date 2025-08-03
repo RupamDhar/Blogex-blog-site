@@ -22,7 +22,7 @@ exports.GenerateAISummary = async (blogContent) => {
         return result;
     }
     catch (err) {
-        return "The sample encountered an error:";
+        console.error(err);
     }
 }
 
