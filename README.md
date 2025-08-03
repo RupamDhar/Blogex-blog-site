@@ -7,6 +7,7 @@
 
 - **Blog Creation and Editing:** Users can view, create, update, and delete their blog posts with ease.
 - **Rich Text Editor:** Markdown-supported editor for writing expressive and well-formatted blogs.
+- **AI Summary Generation:** Readers can generate an AI summary of the blog.
 - **Content Previews:** Blog listings show a short preview (`clippedContent`) of each post.
 - **Blog Filters:** Readers can filter blogs by authors and blog tags.
 - **Developer-Friendly Structure:** Clean separation of frontend and backend logic for easier development and maintenance.
@@ -27,6 +28,7 @@
 - `GET /api/blogs/view/:slug` — View a single blog post by slug
 - `PATCH /api/blogs/update-blog/:slug` — Update an existing blog post
 - `POST /api/blogs/create-blog` — Create a new blog post
+- `POST /api/blogs/generate-ai-summary` — Generate AI summary for a blog post
 - `DELETE /api/blogs/delete-blog` — Delete a blog post
 
 ---

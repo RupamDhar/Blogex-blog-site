@@ -1,4 +1,5 @@
 const Blog = require('../models/BlogModel.js');
+const { GenerateAISummary } = require('../openai.js');
 
 //GET /api/blogs/get-featured-blogs
 exports.getFeaturedBlogs = async (req, res) => {
@@ -33,6 +34,18 @@ exports.getBlogBySlug = async (req, res) => {
         const blog = await Blog.findOne({ slug });
         if (!blog) res.status(404).json({ message: 'Blog not found' });
         res.status(200).json(blog);
+    }
+    catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
+
+exports.generateAISummary = async (req, res) => {
+    console.log('generate AI Summary');
+    const { content } = req.body;
+    try {
+        const summaryContent = await GenerateAISummary(content);
+        res.status(200).json({ summaryContent });
     }
     catch (error) {
         res.status(500).json({ error: error.message });

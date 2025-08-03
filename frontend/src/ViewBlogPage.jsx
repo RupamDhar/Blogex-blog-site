@@ -8,6 +8,8 @@ const ViewBlogPage = () => {
 
     const { slug } = useParams();
     const [blog, setBlog] = useState({});
+    const [summary, setSummary] = useState();
+    const [isSummaryGenerated, setIsSummaryGenerated] = useState(true);
 
     useEffect(() => {
         fetchBlog(slug);
@@ -21,6 +23,26 @@ const ViewBlogPage = () => {
         const data = await result.json();
         console.log(data);
         setBlog(data);
+    }
+
+    async function handleGenerateSummary() {
+        setIsSummaryGenerated(false);
+        try {
+            const result = await fetch(`${BASE_API_URL}/api/blogs/generate-ai-summary`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ content: blog.content })
+            });
+            const data = await result.json();
+            console.log(data);
+            setSummary(data);
+            setIsSummaryGenerated(true);
+        }
+        catch (error) {
+            console.error(error);
+        }
     }
 
     function formatDate(isoDate) {
@@ -46,9 +68,20 @@ const ViewBlogPage = () => {
                     <div className="blog-tags">
                         {/* blog.tags is mapped when it exists (after fetching) */}
                         {blog.tags && blog.tags.map((tag, index) => (
-                            <div className="blog-tag" index={index}>{tag}</div>
+                            <div className="blog-tag" key={index}>{tag}</div>
                         ))}
                     </div>
+                </div>
+
+                <div className="summary-area">
+                    <button
+                        className="generate-ai-summary-btn"
+                        onClick={handleGenerateSummary}
+                    >
+                        {!isSummaryGenerated && <div className="summary-loader"></div>}
+                        Generate AI Summary
+                    </button>
+                    {summary && <div className='ai-summary-textarea'>{summary.summaryContent}</div>}
                 </div>
 
                 <div className="blog-content">
