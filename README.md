@@ -17,6 +17,7 @@
 - **Frontend:** React, CSS
 - **Backend:** NodeJS, ExpressJS
 - **Database:** MongoDB
+- **AI Model:** OpenAI
 - **Libraries/Frameworks:** Mongoose, ReactJS
 - **Deployment:** Vercel (Frontend & Backend)
 
