@@ -62,6 +62,19 @@ const BlogPreviewCard = ({ title, slug, author, tags, clippedContent, timestamp 
         }
     }
 
+    function formatDate(isoDate) {
+        const date = new Date(isoDate);
+
+        const formattedDate = date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        console.log(formattedDate); // "June 7, 2025"
+        return formattedDate;
+    }
+
     const handleBlogEdit = () => {
         window.open(`/update-blog/${slug}`,'_blank')
     }
@@ -94,7 +107,7 @@ const BlogPreviewCard = ({ title, slug, author, tags, clippedContent, timestamp 
             </div>
             <div id="blog-card-content">{clippedContent}</div>
             <div className="blog-card-date">
-                {timestamp}
+                {formatDate(timestamp)}
                 <span className="blog-card-actionables">
                     {/* delete blog actionable */}
                     <i className="fa-solid fa-trash"

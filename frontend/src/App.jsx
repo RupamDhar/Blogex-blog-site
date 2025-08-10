@@ -98,7 +98,7 @@ function App() {
                   author={blog.author}
                   tags={blog.tags}
                   clippedContent={blog.clippedContent}
-                  timestamp={blog.timestamp}
+                  timestamp={blog.createdAt}
                 />
               )))
           }
