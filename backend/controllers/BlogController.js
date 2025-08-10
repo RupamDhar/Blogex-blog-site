@@ -18,7 +18,7 @@ exports.getFeaturedBlogs = async (req, res) => {
 exports.getAllBlogs = async (req, res) => {
     console.log('get all blogs');
     try {
-        const blogs = await Blog.find();
+        const blogs = await Blog.find().sort({createdAt: -1});
         res.json(blogs);
     }
     catch (error) {
